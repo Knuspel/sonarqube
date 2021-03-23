@@ -81,7 +81,7 @@ public class OAuthRestClient {
   }
 
   private static Optional<String> readNextEndPoint(Response response) {
-    String link = response.getHeader("Link");
+    String link = response.getHeader("Link" | "link");
     if (link == null || link.isEmpty() || !link.contains("rel=\"next\"")) {
       return Optional.empty();
     }
